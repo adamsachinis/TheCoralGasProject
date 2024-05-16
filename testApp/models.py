@@ -4,6 +4,20 @@ from django.db import models
 
 #to afisame edwwwwwww
 
+class PriceTanks(models.Model):
+    TYPE = [
+        ("10", "10"),
+        ("13", "13"),
+        ("25", "25"),
+        ("0", "0"),
+    ]
+    tank_type = models.CharField(blank=True, max_length=2, choices=TYPE )
+
+    price = models.PositiveSmallIntegerField(blank=True)
+
+    def __str__(self):
+        return self.tank_type
+
 
 class GasTanks(models.Model):
     TYPE = [
@@ -18,23 +32,14 @@ class GasTanks(models.Model):
         
     ]
     tank_status = models.CharField(default="Full", max_length=5, choices=STATUS )
-    
+
+
+    price = models.ForeignKey(PriceTanks,on_delete=models.CASCADE,default="10")
+
+
     def __str__(self):
         return self.tank_status+self.tank_type
     
-
-class PriceTanks(models.Model):
-    TYPE = [
-        ("10", "10"),
-        ("13", "13"),
-        ("25", "25"),
-    ]
-    tank_type = models.CharField(blank=True, max_length=2, choices=TYPE )
-
-    price = models.PositiveSmallIntegerField(blank=True)
-
-    def __str__(self):
-        return self.tank_type
 
 
 class Warehouse(models.Model):

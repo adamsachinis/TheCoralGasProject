@@ -18,6 +18,10 @@ class GasTanks(models.Model):
         
     ]
     tank_status = models.CharField(default="Full", max_length=1, choices=STATUS )
+
+    def __str__(self):
+        return self.name
+
 class PriceTanks(models.Model):
     TYPE = [
         ("10", "10"),

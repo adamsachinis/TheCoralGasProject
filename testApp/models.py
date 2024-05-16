@@ -25,8 +25,10 @@ class PriceTanks(models.Model):
         ("25", "25"),
     ]
     tank_type = models.CharField(blank=True, max_length=2, choices=TYPE )
-    
+
     price = models.PositiveSmallIntegerField(blank=True)
+    def __str__(self):
+        return self.tank_type
 
 
 class Warehouse(models.Model):

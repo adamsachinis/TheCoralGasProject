@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Question,GasTanks
 
 # Create your views here.
@@ -15,6 +15,11 @@ def about(request):
     gasTankList = GasTanks.objects.all()
     return render(request, "testApp/about.html",{"gasTankList":gasTankList})
   
+def dynamic(request,gasTankId):
+    gasTank = get_object_or_404(GasTanks, pk=gasTankId)
+    return render(request,"testApp/contact.html",{"gasTank":gasTank})
+
+
 
 def index3(request):
     latest_question_list = Question.objects.all()

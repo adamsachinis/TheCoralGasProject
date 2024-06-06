@@ -1,0 +1,14 @@
+{% extends "testApp/index.html" %}
+{% block content %}
+
+<h1>pas na mou fas to 10 lepto</h1>
+{% if gasTank %}
+
+<h1>
+you are editing this {{gasTank.tank_type}}{{gasTank.tank_status}} cost: {{gasTank.price}},
+</h1>
+
+{% endif %}
+
+
+{% endblock %}

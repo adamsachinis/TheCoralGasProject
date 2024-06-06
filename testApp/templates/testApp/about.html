@@ -1,0 +1,15 @@
+{% extends "testApp/index.html" %}
+{% block content %}
+
+<h1>eisai misitos anthrwpos gia auto sou dinw ta gastanks, pussyboy</h1>
+{% if gasTankList %}
+{%for gastank in gasTankList%}
+<h1>
+{{gastank.tank_type}}{{gastank.tank_status}} cost: {{gastank.price}},
+</h1>
+
+{%endfor%}
+{% endif %}
+
+
+{% endblock %}
